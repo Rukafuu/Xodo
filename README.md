@@ -1,4 +1,4 @@
-# ✦ Xodó Language (`.xo`)
+# Xodó Language (.xo)
 
 > **"A linguagem que fala a sua língua e pensa com IA."**
 
@@ -6,14 +6,14 @@ O **Xodó** é uma linguagem de programação brasileira, multiparadigma e orien
 
 ![Xodó Banner](./public/logo.png)
 
-## ✨ Por que Xodó?
+## Por que Xodó?
 
--   **🇧🇷 Sintaxe em Português:** Escreva código como quem conta um caso. `se`, `senao`, `enquanto`, `call`.
--   **🤖 Native AI (ask):** A keyword `ask()` é parte da gramática. Invoque LLMs locais (Ollama/CAFUNE) com Structured Output nativo.
--   **⚡ Async Transparente:** Chamadas de sistema e IA são tratadas de forma eficiente pelo runtime.
--   **📦 Stdlib Tier 7:** Funções nativas de automação de sistema, leitura de arquivos, e notificações.
+-   **Sintaxe em Português:** Escreva código como quem conta um caso. `se`, `senao`, `enquanto`, `call`.
+-   **Native AI (ask):** A keyword `ask()` é parte da gramática. Invoque LLMs locais (Ollama/CAFUNE) com Structured Output nativo.
+-   **Async Transparente:** Chamadas de sistema e IA são tratadas de forma eficiente pelo runtime.
+-   **Stdlib Tier 7:** Funções nativas de automação de sistema, leitura de arquivos, e notificações.
 
-## 🚀 Exemplo de Código
+## Exemplo de Código
 
 ```xodo
 // Definindo um agente de análise
@@ -34,7 +34,7 @@ res = AnalisarSentimento("Estou amando codar em Xodó! ✦")
 Evoke("Sentimento: {res.sentimento} ({res.confianca * 100}%)")
 ```
 
-## 🛠️ Instalação
+## Instalacao
 
 ```bash
 # Clone o repositório
@@ -53,7 +53,7 @@ xodo run meu_script.xo
 xodo --debug meu_script.xo  # Inicia em modo debug para o Studio
 ```
 
-## 📚 Gramática e Features
+## Gramática e Features
 -   **Declaração:** `:=` para constantes, `=` para mutáveis.
 -   **Estruturas:** `se/senao`, `enquanto`, `para_cada`, `tente/pegue`.
 -   **Módulos:** `usar "agente_web.xo"`.
