@@ -1,0 +1,19 @@
+// Teste de Automação OS (Tier 7)
+
+Evoke("Copiando para o clipboard...")
+area_transferencia("Xodó é vida! ✦")
+
+lido = area_transferencia()
+Evoke("Lido do clipboard: {lido}")
+
+se (lido == "Xodó é vida! ✦") {
+    notificar("Xodó Studio", "Automação via PowerShell funcionou!")
+    Evoke("Notificação disparada com sucesso.")
+} senao {
+    Evoke("Erro: Clipboard não bate com o esperado.")
+}
+
+// Teste de execução de comando
+files = executar_comando("dir")
+Evoke("Listagem do DIR via executar_comando:")
+Evoke(files)

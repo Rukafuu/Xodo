@@ -1,0 +1,5 @@
+call Somar(a, b) {
+    retornar a + b
+}
+
+MsgModulo = "Olá do módulo!"

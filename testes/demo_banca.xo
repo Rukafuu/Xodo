@@ -1,0 +1,95 @@
+// ═══════════════════════════════════════════════════════════════
+//  XODÓ LANG v0.1 — Demo de Apresentação | FMU 2026
+//  Prova de Conceito: Linguagem com IA como primitiva nativa
+// ═══════════════════════════════════════════════════════════════
+
+// ── BLOCO 1: Xodó como linguagem de uso geral ─────────────────
+
+Evoke("╔═══════════════════════════════════════╗")
+Evoke("║   XODÓ LANG v0.1  —  Demo FMU 2026   ║")
+Evoke("╚═══════════════════════════════════════╝")
+Evoke("")
+
+autor  := "Lucas"
+versao := "0.1.0"
+inicio  = agora()
+
+Evoke("Autor : " + autor)
+Evoke("Versão: " + versao)
+Evoke("")
+
+// Call puro — lógica sem IA
+call Saudar(nome) {
+    Evoke("Olá, " + nome + "! Bem-vindo ao Xodó.")
+}
+
+Saudar("Banca da FMU")
+Evoke("")
+
+// ── BLOCO 2: Stdlib — I/O e JSON nativos ──────────────────────
+
+Evoke("── Bloco 2: I/O e JSON ──────────────────────────────────")
+
+relatorio = {
+    projeto:  "Xodó Language",
+    tipo:     "TCC Engenharia de IA",
+    features: "IA Nativa + Stdlib completa + CLI"
+}
+
+escrever_arquivo("demo_output/relatorio.json", para_json(relatorio))
+Evoke("Relatório gravado em demo_output/relatorio.json")
+
+conteudo = ler_arquivo("demo_output/relatorio.json")
+dados_lidos = de_json(conteudo)
+Evoke("Arquivo relido — projeto: " + dados_lidos.projeto)
+
+arquivos = listar_arquivos("demo_output")
+Evoke("Arquivos em demo_output/: " + tamanho(arquivos) + " arquivo(s)")
+Evoke("")
+
+// ── BLOCO 3: IA Nativa — o superpoder do Xodó ─────────────────
+
+Evoke("── Bloco 3: IA Nativa (ask) ─────────────────────────────")
+
+modelo    := "llama3"
+sys_prompt := "Você é um crítico técnico objetivo. Responda SOMENTE em JSON válido, sem markdown."
+
+def_analise = {
+    tecnologia:    texto,
+    inovador:      booleano,
+    pontos_fortes: texto,
+    nota:          numero
+}
+
+call AnalisarTecnologia(descricao) {
+    tente {
+        Evoke("Consultando modelo local em http://localhost:11434 ...")
+        esperar(300)
+
+        resultado = ask(descricao, modelo, sys_prompt, def_analise)
+
+        Evoke("")
+        Evoke("► Tecnologia   : " + resultado.tecnologia)
+        Evoke("► Inovador     : " + resultado.inovador)
+        Evoke("► Pontos fortes: " + resultado.pontos_fortes)
+        Evoke("► Nota         : " + resultado.nota)
+
+        escrever_arquivo("demo_output/analise_ia.json", para_json(resultado))
+        Evoke("Resultado salvo em demo_output/analise_ia.json")
+
+    } pegue (erro) {
+        Evoke("[Modo Offline] Modelo local indisponível.")
+        Evoke("Para ativar: instale Ollama e execute 'ollama run llama3'")
+        Evoke("Erro capturado: " + erro.log)
+    }
+}
+
+AnalisarTecnologia("Xodó é uma linguagem interpretada com IA como primitiva nativa, criada para Vibe Coders brasileiros. O operador ask() abstrai toda a infraestrutura de LLM — sem imports, sem SDK, sem boilerplate.")
+
+// ── BLOCO 4: Encerramento ──────────────────────────────────────
+
+Evoke("")
+fim = agora()
+Evoke("╔═══════════════════════════════════════╗")
+Evoke("║   Demo concluída com sucesso!         ║")
+Evoke("╚═══════════════════════════════════════╝")

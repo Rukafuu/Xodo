@@ -1,0 +1,26 @@
+usar "testes/util.xo"
+
+// Teste de modularidade
+total = Somar(40, 2)
+Evoke("Modularidade: 40 + 2 = {total}")
+Evoke("Variável do módulo: {MsgModulo}")
+
+// Teste de 'parar' (Break)
+Evoke("--- Teste Parar ---")
+i = 0
+enquanto (i < 10) {
+    i = i + 1
+    se (i > 3) {
+        parar
+    }
+    Evoke("i = {i}")
+}
+
+// Teste de 'proximo' (Continue)
+Evoke("--- Teste Proximo (apenas ímpares) ---")
+para_cada (item em [1, 2, 3, 4, 5, 6]) {
+    se (item % 2 == 0) {
+        proximo
+    }
+    Evoke("ímpar: {item}")
+}

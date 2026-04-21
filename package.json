@@ -1,0 +1,19 @@
+{
+  "name": "xodo-lang",
+  "version": "0.2.0",
+  "description": "Interpretador da linguagem Xodó (.xo) — IA como primitiva nativa",
+  "main": "dist/index.js",
+  "bin": {
+    "xodo": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "run:xo": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}

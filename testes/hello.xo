@@ -1,0 +1,33 @@
+// Teste do Lexer — cobre todos os token types implementados
+
+// Constantes e variáveis
+modelo := "CAFUNE-Local"
+sys_prompt := "Extraia o perfil e os sentimentos do texto."
+versao = 1.0
+
+// Schema de saída (def)
+def_saida = {
+    nome: texto,
+    sentimento_positivo: booleano,
+    resumo: texto
+}
+
+// Declaração de agente
+call AnalisarLog(entrada_usuario) {
+    tente {
+        dados = ask(entrada_usuario, modelo, sys_prompt, def_saida)
+
+        se (dados.sentimento_positivo) {
+            Evoke("Sucesso! O usuário " + dados.nome + " curtiu o sistema.")
+            Evoke("Resumo: " + dados.resumo)
+        } senao {
+            Evoke("Feedback negativo de: " + dados.nome)
+        }
+
+    } pegue (erro) {
+        Evoke("Falha de orquestração: " + erro.log)
+    }
+}
+
+// Invocação
+AnalisarLog("Aqui é o Lucas, achei o tempo de resposta do modelo bizarramente rápido!")

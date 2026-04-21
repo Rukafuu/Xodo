@@ -1,0 +1,26 @@
+// Teste da stdlib — sem tocar em IA
+
+// escrever_arquivo e ler_arquivo
+escrever_arquivo("testes/saida.txt", "Xodó funciona!")
+conteudo = ler_arquivo("testes/saida.txt")
+Evoke("Arquivo lido: " + conteudo)
+
+// para_json e de_json
+dados = { linguagem: "Xodó", versao: "0.1" }
+serializado = para_json(dados)
+Evoke("JSON gerado:")
+Evoke(serializado)
+
+// tamanho
+Evoke("Tamanho da string: " + tamanho("Vibe Coding"))
+
+// agora
+inicio = agora()
+esperar(50)
+fim = agora()
+Evoke("esperar() funcionou — tempo medido acima de 0: " + fim)
+
+// listar_arquivos
+arquivos = listar_arquivos("testes")
+Evoke("Arquivos na pasta testes:")
+Evoke(para_json(arquivos))

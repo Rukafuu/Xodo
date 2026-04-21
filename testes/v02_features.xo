@@ -1,0 +1,91 @@
+// ─── Teste v0.2 do Xodó ───────────────────────────────────────────────────────
+
+/* Comentário de bloco funciona! */
+
+// 1. Interpolação de strings
+nome := "Xodó"
+versao := "0.2"
+Evoke("Testando {nome} v{versao} ✦")
+
+// 2. Listas nativas
+frutas := ["maçã", "banana", "laranja", "uva"]
+Evoke("Total de frutas: {tamanho(frutas)}")
+
+// 3. para_cada
+Evoke("--- Frutas ---")
+para_cada(fruta em frutas) {
+    Evoke("🍎 {fruta}")
+}
+
+// 4. Operadores de comparação
+nota := 85
+se (nota >= 70 e nota < 90) {
+    Evoke("Nota {nota}: Aprovado com distinção!")
+} senao se (nota >= 50) {
+    Evoke("Nota {nota}: Aprovado")
+} senao {
+    Evoke("Nota {nota}: Reprovado")
+}
+
+// 5. Operadores lógicos: nao, ou
+chovendo := falso
+feriado  := verdadeiro
+
+se (nao chovendo ou feriado) {
+    Evoke("Bom dia para sair! 🌞")
+}
+
+// 6. Números negativos
+temperatura := -15
+se (temperatura < 0) {
+    absoluto_temp = absoluto(temperatura)
+    Evoke("Temperatura: {temperatura}°C (variação de {absoluto_temp}°C abaixo de zero)")
+}
+
+// 7. Loop enquanto com contador
+Evoke("--- Contagem regressiva ---")
+contador = 5
+enquanto (contador > 0) {
+    Evoke("⏱ {contador}...")
+    contador = contador - 1
+}
+Evoke("🚀 Lançamento!")
+
+// 8. Call com retornar
+call Somar(a, b) {
+    retornar a + b
+}
+
+call Fatorial(n) {
+    se (n <= 1) {
+        retornar 1
+    }
+    retornar n * Fatorial(n - 1)
+}
+
+soma = Somar(10, 32)
+Evoke("10 + 32 = {soma}")
+
+fat5 = Fatorial(5)
+Evoke("5! = {fat5}")
+
+// 9. Operações de lista via stdlib
+numeros = [3, 1, 4, 1, 5, 9, 2, 6]
+Evoke("Lista original: {juntar(numeros, \", \")}")
+numeros = adicionar(numeros, 7)
+Evoke("Após adicionar 7: {juntar(numeros, \", \")}")
+Evoke("Tamanho: {tamanho(numeros)}")
+
+// 10. != diferente
+x := 10
+y := 20
+se (x != y) {
+    Evoke("{x} é diferente de {y}")
+}
+
+// 11. Interpolação com expressão complexa
+base  := 5
+altura := 3
+Evoke("Área do triângulo: {base * altura / 2}")
+
+Evoke("--- Todos os testes passaram! ✅ ---")
